@@ -1,0 +1,31 @@
+@Rampage
+
+
+Enter the day's schedule algorihtm
+
+db format:
+
+table_name:the day's date
+
+db schema:
+name_task	start_time	end_time
+
+i.	connect to the db
+ii.	open the right table
+iii.	get the task data from user
+	iii.i.	check whether the time format is suitable
+iv.	write the data into the database file
+
+
+table management algorithm:
+
+i.	check for a table with the name of today's date
+ii.	if exists insert the add details of task 
+iii.	if doesnt create a table then insert the data
+
+GUI:
+a task_name field
+a start_time field
+a end_time field
+a submit button
+
