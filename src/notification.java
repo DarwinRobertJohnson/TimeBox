@@ -9,14 +9,7 @@ public class notification extends JFrame{
 
     //Default Constructor
     public notification(){
-        
-    //     task_name=new JLabel("Works!");
 
-    //     add(task_name);
-
-    //     setVisible(true);
-    //     setSize(720,360);
-    //     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 

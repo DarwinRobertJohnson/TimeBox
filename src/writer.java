@@ -17,7 +17,9 @@ class myGui extends JFrame implements ActionListener{
     JButton add_button;
     dbHandler db;
 
-    public myGui() throws Exception{
+    public myGui(){
+
+        try{
 
         db=new dbHandler();
 
@@ -54,6 +56,10 @@ class myGui extends JFrame implements ActionListener{
 
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in creation of gui object of writer");
+        }
     }       
 
 
@@ -69,7 +75,7 @@ class myGui extends JFrame implements ActionListener{
 
     //Inserts data into the database
 
-    public void insertData() throws Exception{
+    public void insertData(){
         
         try{
         db.add(task_name_tf.getText(),start_time_field.getText(),end_time_field.getText());
@@ -106,10 +112,14 @@ class myGui extends JFrame implements ActionListener{
 
 
 public class writer{
-    public static void main(String args[]) throws Exception{
-        
+    public static void main(String args[]){
+
+        try{       
         myGui g=new myGui();
-        
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in main block of writer.Code is Broken");
+        }
 
     }
 }

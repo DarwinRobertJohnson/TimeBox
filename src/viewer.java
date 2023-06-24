@@ -10,7 +10,10 @@ class Viewer extends JFrame{
     dbHandler db;
     int count;
 
-    public void init(String[][] list,ResultSet rs) throws Exception{
+    public void init(String[][] list,ResultSet rs){
+
+
+        try{
         while(rs.next()){
             for(int i=0;i<count;i++){
                 for(int j=0;j<3;j++){
@@ -18,12 +21,19 @@ class Viewer extends JFrame{
                 }
             }
         }
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in intialisation");
+        }
+    
+    
     }
 
 
 
-    public Viewer() throws Exception{
+    public Viewer(){
         
+        try{
         super("Viewer");
         
         db=new dbHandler();
@@ -43,6 +53,12 @@ class Viewer extends JFrame{
         setSize(600,600);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in object creation");
+        }
+
+
     }
 }
 
@@ -51,10 +67,14 @@ class Viewer extends JFrame{
 public class viewer{
 
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
 
+        try{
         Viewer vw=new Viewer();
-
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in main block of viewer.Code is Broken!");
+        }
 
     }
 }

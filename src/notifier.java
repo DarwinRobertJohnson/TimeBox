@@ -24,7 +24,9 @@ class taskList{
     timeHandler tl;
     notification nf;
 
-    public taskList() throws Exception{
+    public taskList(){
+        
+        try{
         db=new dbHandler();
         list=db.getItems();
         tl=new timeHandler();
@@ -34,28 +36,42 @@ class taskList{
             if(tl.checkEqualTime(list.getString("start_time"),tl.getCurrentTime()))
                 nf.Notify();
         }
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in taskList formation");
+        }
     }
 
-    public void checkTasks() throws Exception{
+    public void checkTasks(){
+
+        try{
         while(list.next()){
             if(tl.checkEqualTime(list.getString("start_time"),tl.getCurrentTime()))
                 nf.Notify();
         }
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in task checking.Possible cause no schedule for today");
+        }
+
     }
 
 }
 
 
 public class notifier{
-    public static void main(String[] args) throws Exception{ 
+    public static void main(String[] args){ 
 
         taskList l=new taskList();
 
+        try{
         while(true){
-            System.out.println("Waiting done");
             l.checkTasks();
-            System.out.println("Waiting started");
             TimeUnit.MINUTES.sleep(1);
+        }
+        }
+        catch(Exception E){
+            System.out.println("Error has occured in main block of Notifier.Code is broken!");
         }
 
     }
