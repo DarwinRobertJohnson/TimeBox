@@ -2,8 +2,10 @@
 
 cd src
 
-javac -d ../class/  app.java
+javac -d ../class/  notifier.java
 
 cd ../class
 
-java -classpath ".:sqlite-jdbc-3.7.2.jar" app
+java -classpath ".:sqlite-jdbc-3.7.2.jar" writer
+#java -classpath ".:sqlite-jdbc-3.7.2.jar" viewer
+java -classpath ".:sqlite-jdbc-3.7.2.jar" notifier

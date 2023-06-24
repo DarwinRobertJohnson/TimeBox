@@ -11,4 +11,17 @@
 	- Added create table function
 
 11/05/2023 Thursday
-	- Finished up the add function(might need some changes when interfacing 	with GUI)
+	- Finished up the add function(might need some changes when interfacing 
+	with GUI)
+
+15/05/2023 Monday
+	- Made a not so good looking gui for the add program
+
+17/05/2023 Wednesday
+	- Interfaced the dbHandler class with the gui class( the function is not 	interfaced yet)
+
+18/052023 Thursday
+	- Conencted the add function and it works good but need to add checking 	function for times
+
+19/06/2023 Monday
+	- Made a class timeHandler to get current system time

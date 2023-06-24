@@ -1,4 +1,6 @@
-//@Rampage
+//	@Rampage
+
+
 
 import java.lang.*;
 import java.sql.*;
@@ -39,7 +41,7 @@ class task_data{
 
 //The class that handles database interaction
 
-class dbHandler{
+public class dbHandler{
 
 	//Class variables
 
@@ -67,15 +69,27 @@ class dbHandler{
 
 
 
-	//prints a star for each element in table
+	//prints the list of items for that day
 
-	public void getItems() throws Exception{
+	public ResultSet getItems() throws Exception{
 
-		while(rs.next()){
-			System.out.println("*");
+		String query="select * from "+processDate(date.toString());
+		rs=stm.executeQuery(query);
+
+		return rs;
+	
+	}
+
+
+	public int getCount() throws Exception{
+		ResultSet RS=getItems();
+		int count=0;
+
+		while(RS.next()){
+			count++;
 		}
 
-	
+		return count;
 	}
 
 
@@ -139,18 +153,26 @@ class dbHandler{
 	}
 
 
-}
+	//Adds item to the day's list but has arguments
 
+	public void add(String task_name,String start_time,String end_time) throws Exception{
 
+		if(!isTable())
+			createTable();
 
+		String str=processDate(date.toString());
+		String sqlQuery="insert into $tablename values(?,?,?,?)";
+		String query=sqlQuery.replace("$tablename",str);
+		PreparedStatement pstm=con.prepareStatement(query);
 
-
-
-
-public class app{
-	public static void main(String[] args) throws Exception{
+		pstm.setString(1,str);
+		pstm.setString(2,task_name);
+		pstm.setString(3,start_time);
+		pstm.setString(4,end_time);
 		
-		dbHandler db=new dbHandler();
-		db.add();	
+		pstm.executeUpdate();
 	}
+
+
 }
+
