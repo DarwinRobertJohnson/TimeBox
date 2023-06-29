@@ -32,10 +32,6 @@ class taskList{
         tl=new timeHandler();
         nf=new notification();
 
-        while(list.next()){
-            if(tl.checkEqualTime(list.getString("start_time"),tl.getCurrentTime()))
-                nf.Notify();
-        }
         }
         catch(Exception E){
             System.out.println("Error has occured in taskList formation");
@@ -43,11 +39,14 @@ class taskList{
     }
 
     public void checkTasks(){
-
+        String task_name;
         try{
         while(list.next()){
-            if(tl.checkEqualTime(list.getString("start_time"),tl.getCurrentTime()))
-                nf.Notify();
+            if(tl.checkEqualTime(list.getString("start_time"),tl.getCurrentTime())){
+                task_name=list.getString("task_name");
+                System.out.println(task_name);
+                nf.Notify(task_name);
+            }
         }
         }
         catch(Exception E){

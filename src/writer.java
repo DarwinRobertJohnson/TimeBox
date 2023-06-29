@@ -52,8 +52,8 @@ class myGui extends JFrame implements ActionListener{
         add(add_button);
 
         setVisible(true);
-        setSize(600,600);
-
+        //setSize(600,600);
+        pack();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }

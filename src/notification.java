@@ -1,5 +1,6 @@
 import java.lang.*;
 import javax.swing.*;
+import java.awt.FlowLayout;
 
 
 public class notification extends JFrame{
@@ -26,11 +27,13 @@ public class notification extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void Notify(){
-        task_name=new JLabel("It Works!!");
-
+    public void Notify(String task_n){
+        //task_name=new JLabel("It Works!!");
+        task_name=new JLabel(task_n);
+        JLabel start_time=new JLabel("18:00");
         add(task_name);
-
+        add(start_time);
+        setLayout(new FlowLayout());
         setVisible(true);
         setSize(720,144);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
